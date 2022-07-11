@@ -15,3 +15,5 @@
 ### 4.点击右上角添加 
 ### 5.输入机器人名字，点击添加按钮 
 ### 6.返回查看机器人，得到webhook地址中“key=” 后的字符串
+
+相关文章 ：https://www.darkathena.top/archives/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%BE%A4%E6%9C%BA%E5%99%A8%E4%BA%BA
