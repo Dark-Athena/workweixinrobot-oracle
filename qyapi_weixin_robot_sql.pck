@@ -35,6 +35,26 @@ Copyright DarkAthena(darkathena@qq.com)
 end qyapi_weixin_robot_sql ;
 /
 create or replace package body qyapi_weixin_robot_sql  is
+  function replace_fun(pSourceStr in varchar2) return varchar2 is
+  v_str varchar2(2000);
+begin
+  --数据中如果有json中的保留字符则替换掉
+  v_str:=replace(pSourceStr,':','：');
+  v_str:=replace(v_str,',','，');
+  v_str:=replace(v_str,'{','｛');
+  v_str:=replace(v_str,'}','｝');
+  v_str:=replace(v_str,'[','【');
+  v_str:=replace(v_str,']','】');
+  v_str:=replace(v_str,'"','“');
+  v_str:=replace(v_str,'\','∕');
+  v_str:=replace(v_str,chr(10),'');
+  v_str:=replace(v_str,chr(13),'');
+  v_str:=replace(v_str,'-','');
+  v_str:=replace(v_str,'&','＆');
+  v_str:=replace(v_str,'%','﹪');
+  return v_str;
+end;
+                 
     PROCEDURE to_base64(dest IN OUT NOCOPY CLOB, src in blob) IS
     --取 3 的倍數(UTF-8) 又因為需要按照64字符每行分行，所以需要是16的倍數，所以下面的長度必需為 48的倍數
     sizeB integer := 6144;
